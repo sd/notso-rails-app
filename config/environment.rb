@@ -82,3 +82,5 @@ Rails::Initializer.run do |config|
 
   config.active_record.observers = :user_observer # required for restful_authentication activation
 end
+
+require "snippets/all.rb"
