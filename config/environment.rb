@@ -31,7 +31,7 @@ Rails::Initializer.run do |config|
   config.gem 'quietbacktrace',          :version => '>= 0.1.1'
   config.gem 'thoughtbot-factory_girl', :version => '>= 1.1.5',   :lib => 'factory_girl',   :source => 'http://gems.github.com'
   config.gem 'thoughtbot-shoulda',      :version => '>= 2.0.6',   :lib => 'shoulda',        :source => 'http://gems.github.com'
-             
+  config.gem 'haml',                    :version => '>= 2.0.7'
   
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
