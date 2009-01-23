@@ -75,29 +75,29 @@ class UserTest < ActiveSupport::TestCase
   end
 
   def test_should_remember_me_for_one_week
-    before = 1.week.from_now.utc
+    before = 1.week.from_now
     users(:quentin).remember_me_for 1.week
-    after = 1.week.from_now.utc
+    after = 1.week.from_now
     assert_not_nil users(:quentin).remember_token
     assert_not_nil users(:quentin).remember_token_expires_at
-    assert users(:quentin).remember_token_expires_at.between?(before, after)
+    assert users(:quentin).remember_token_expires_at.to_i.between?(before.to_i, after.to_i)
   end
 
   def test_should_remember_me_until_one_week
-    time = 1.week.from_now.utc
+    time = 1.week.from_now
     users(:quentin).remember_me_until time
     assert_not_nil users(:quentin).remember_token
     assert_not_nil users(:quentin).remember_token_expires_at
-    assert_equal users(:quentin).remember_token_expires_at, time
+    assert_equal users(:quentin).remember_token_expires_at.to_i, time.to_i
   end
 
   def test_should_remember_me_default_two_weeks
-    before = 2.weeks.from_now.utc
+    before = 2.weeks.from_now
     users(:quentin).remember_me
-    after = 2.weeks.from_now.utc
+    after = 2.weeks.from_now
     assert_not_nil users(:quentin).remember_token
     assert_not_nil users(:quentin).remember_token_expires_at
-    assert users(:quentin).remember_token_expires_at.between?(before, after)
+    assert users(:quentin).remember_token_expires_at.to_i.between?(before.to_i, after.to_i)
   end
 
 protected
